@@ -18,7 +18,7 @@ namespace APITests
         [Test]
         public void StatusIs200()
         {
-            Assert.That(_singleRouteResponseService.ResponseContent["id"].ToString(), Is.EqualTo("victoria"));
+            Assert.That(_singleRouteResponseService.ResponseContent["status"].ToString(), Is.EqualTo("200"));
         }
 
         //[Test]

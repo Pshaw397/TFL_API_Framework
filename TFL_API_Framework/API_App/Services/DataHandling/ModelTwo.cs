@@ -14,6 +14,7 @@ public class SingleRouteResponse
     public Routesection[] routeSections { get; set; }
     public Servicetype[] serviceTypes { get; set; }
     public Crowding crowding { get; set; }
+    public int status { get; set; }
 }
 
 public class Crowding
