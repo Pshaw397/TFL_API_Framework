@@ -32,10 +32,17 @@ namespace APITests
         }
 
         [Test]
-        public void ReturnTheCountOfRouteSections()
+        public void ReturnTheDirectionOfRouteSections()
         {
-            //var result = _singleRouteResponseService.ResponseContent["routeSections"];
-            //Assert.That(result, Is.EqualTo(2));
+            var result = _singleRouteResponseService.ResponseContent["routeSections"][0]["direction"].ToString();
+            Assert.That(result, Is.EqualTo("inbound"));
+        }
+
+        [Test]
+        public void ReturnTheServiceTypeCount()
+        {
+            var result = _singleRouteResponseService.SingleRouteDTO.SingleRouteResponse.serviceTypes.Length;
+            Assert.That(result, Is.EqualTo(2));
         }
 
     }
