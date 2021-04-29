@@ -22,7 +22,7 @@ namespace API_App.Services
 
             var request = new RestRequest();
             request.AddHeader("Content-Type", "Application/json");
-            request.Resource = $"Line/Route?{lineName}";
+            request.Resource = $"Line/{lineName}/Route";
             var response = _client.Execute(request);
 
             return response.Content;
