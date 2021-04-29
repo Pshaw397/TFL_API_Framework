@@ -10,6 +10,7 @@ namespace API_App.Services
     {
 
         public CallManager CallManager { get; }
+
         public JObject ResponseContent { get; set; }
 
         public SingleRouteDTO SingleRouteDTO  { get; set; }
