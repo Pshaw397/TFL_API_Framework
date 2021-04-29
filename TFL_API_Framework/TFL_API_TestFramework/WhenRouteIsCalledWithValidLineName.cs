@@ -1,5 +1,6 @@
 ﻿using API_App.Services;
 using NUnit.Framework;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace APITests
@@ -12,13 +13,16 @@ namespace APITests
         public void OneTimeSetUp()
         {
             _singleRouteResponseService = new SingleRouteResponseService();
-            _singleRouteResponseService.MakeRequest("Victoria");
+            _singleRouteResponseService.MakeRequest("Bakerloo");
         }
 
         [Test]
         public void StatusIs200()
         {
             Assert.That(_singleRouteResponseService.ResponseContent["status"].ToString(), Is.EqualTo("200"));
+            Assert.That(_singleRouteResponseService.numStatusCode, Is.EqualTo(200));
+           // Assert.That(_singleRouteResponseService.ResponseContent["id"].ToString(), Is.EqualTo("bakerloo"));
+
         }
 
         //[Test]
