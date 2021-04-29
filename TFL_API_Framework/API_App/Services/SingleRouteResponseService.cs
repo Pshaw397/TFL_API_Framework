@@ -21,7 +21,8 @@ namespace API_App.Services
         public SingleRouteResponseService()
         {
 
-
+            CallManager = new CallManager();
+            SingleRouteDTO = new SingleRouteDTO();
 
         }
 
@@ -30,7 +31,9 @@ namespace API_App.Services
 
             LineSelected = lineName;
 
-            //LineResponse = CallManager.
+            LineResponse = CallManager.MakeSingleLineNameRequest(lineName);
+            ResponseContent = JObject.Parse(LineResponse);
+            SingleRouteDTO.DeserializeResponse(LineResponse); 
 
         }
 
