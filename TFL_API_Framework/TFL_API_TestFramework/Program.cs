@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework;
 
 namespace TFL_API_TestFramework
 {
-    class Program
+
+    public class Test
     {
-        static void Main(string[] args)
-        {
-        }
+
+
+
     }
+
 }
