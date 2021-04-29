@@ -21,6 +21,14 @@ namespace TFL_API_TestFramework.Tests
         }
 
         [Test]
+        public void CentralRequestHasStatus200()
+        {
+
+            Assert.That(_singleRouteResponseService.numStatusCode, Is.EqualTo(200));
+
+        }
+
+        [Test]
         public void ModelNameIs_Tube()
         {
 

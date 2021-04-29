@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Threading.Tasks;
 using RestSharp;
 
@@ -9,6 +10,8 @@ namespace API_App.Services
 
         readonly IRestClient _client;
         public IRestResponse Response { get; set; }
+
+        public HttpStatusCode statusCode { get; set; }
 
         public CallManager()
         {
@@ -24,7 +27,8 @@ namespace API_App.Services
             request.AddHeader("Content-Type", "Application/json");
             request.Resource = $"Line/{lineName}/Route";
             var response = _client.Execute(request);
-            
+            statusCode = response.StatusCode;
+
             return response.Content;
 
         }
