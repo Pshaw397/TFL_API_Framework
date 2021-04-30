@@ -76,9 +76,12 @@
     <Compile Include="Services\DataHandling\ModelTwo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\DataHandling\VehicleDTO.cs" />
+    <Compile Include="Services\DataHandling\VehicleModel.cs" />
     <Compile Include="Services\HTTPManager\CallManager.cs" />
     <Compile Include="Services\DataHandling\SingleRouteDTO.cs" />
     <Compile Include="Services\SingleRouteResponseService.cs" />
+    <Compile Include="VehicleService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

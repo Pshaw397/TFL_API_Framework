@@ -56,14 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UlezVehicleTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-
     <Compile Include="SingleRouteBakerlooResponseTest.cs" />
+    <Compile Include="SingleRouteCentralResponseServiceTest.cs" />
     <Compile Include="SingleRouteVictoriaLineResponseServiceTest.cs" />
-
-    <Compile Include="SingleRouteBakerlooResponseTests.cs" />
-
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
