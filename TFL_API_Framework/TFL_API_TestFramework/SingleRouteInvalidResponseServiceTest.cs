@@ -28,6 +28,14 @@ namespace TFL_API_TestFramework
 
         }
 
+        [Test]
+        public void IdIsNull()
+        {
+
+            Assert.That(_singleRouteResponseService.ResponseContent["id"], Is.EqualTo(null));
+
+        }
+
 
     }
 }
