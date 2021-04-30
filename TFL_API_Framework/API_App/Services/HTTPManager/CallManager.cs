@@ -20,26 +20,26 @@ namespace API_App.Services
 
         }
 
-        public string MakeSingleLineNameRequest(string lineName)
+        public async Task<string> MakeSingleLineNameRequest(string lineName)
         {
 
             var request = new RestRequest();
             request.AddHeader("Content-Type", "Application/json");
             request.Resource = $"Line/{lineName}/Route";
-            var response = _client.Execute(request);
+            var response = await _client.ExecuteAsync(request);
             statusCode = response.StatusCode;
 
             return response.Content;
 
         }
 
-        public string MakeVehicleRegRequest(string vRegMark)
+        public async Task<string> MakeVehicleRegRequest(string vRegMark)
         {
 
             var request = new RestRequest();
             request.AddHeader("Content-Type", "Application/json");
             request.Resource = $"Vehicle/UlezCompliance?vrm={vRegMark}";
-            var response = _client.Execute(request);
+            var response = await _client.ExecuteAsync(request);
             statusCode = response.StatusCode;
 
             return response.Content;

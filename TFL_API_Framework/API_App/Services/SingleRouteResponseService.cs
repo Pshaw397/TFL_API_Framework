@@ -29,12 +29,12 @@ namespace API_App.Services
 
         }
 
-        public void MakeRequest(string lineName)
+        public async Task MakeRequest(string lineName)
         {
 
             LineSelected = lineName;
 
-            LineResponse = CallManager.MakeSingleLineNameRequest(lineName);
+            LineResponse = await CallManager.MakeSingleLineNameRequest(lineName);
             ResponseContent = JObject.Parse(LineResponse);
             SingleRouteDTO.DeserializeResponse(LineResponse);
             numStatusCode = (int)CallManager.statusCode;

@@ -1,5 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json.Linq;
+using System.Threading.Tasks;
 
 namespace API_App.Services
 {
@@ -26,12 +27,12 @@ namespace API_App.Services
 
         }
 
-        public void MakeRegRequest(string vRegMark)
+        public async Task MakeRegRequest(string vRegMark)
         {
 
             VehicleRegSelected = vRegMark;
 
-            VehicleRegResponse = CallManager.MakeVehicleRegRequest(vRegMark);
+            VehicleRegResponse = await CallManager.MakeVehicleRegRequest(vRegMark);
             ResponseContent = JObject.Parse(VehicleRegResponse);
             VehicleDTO.DeserializeResponse(VehicleRegResponse);
             numStatusCode = (int)CallManager.statusCode;

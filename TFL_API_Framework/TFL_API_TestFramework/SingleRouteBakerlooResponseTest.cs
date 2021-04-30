@@ -10,10 +10,10 @@ namespace APITests
         SingleRouteResponseService _singleRouteResponseService;
 
         [OneTimeSetUp]
-        public void OneTimeSetUp()
+        public async Task OneTimeSetUp()
         {
             _singleRouteResponseService = new SingleRouteResponseService();
-            _singleRouteResponseService.MakeRequest("Bakerloo");
+            await _singleRouteResponseService.MakeRequest("Bakerloo");
         }
 
         [Test]
