@@ -17,7 +17,7 @@ namespace TFL_API_TestFramework
         public async Task OneTimeSetUp()
         {
             _singleRouteResponseService = new SingleRouteResponseService();
-            await _singleRouteResponseService.MakeRequest("ErrorRequestRoute");
+            await _singleRouteResponseService.MakeRequestAsync("ErrorRequestRoute");
         }
 
         [Test]

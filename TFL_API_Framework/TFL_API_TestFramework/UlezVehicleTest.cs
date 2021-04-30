@@ -17,7 +17,7 @@ namespace TFL_API_TestFramework.Tests
         public async Task OneTimeSetUp()
         {
             _vehileService = new VehicleService();
-            await _vehileService.MakeRegRequest("FY53UYP");
+            await _vehileService.MakeRegRequestAsync("FY53UYP");
         }
 
 
