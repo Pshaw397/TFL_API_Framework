@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using RestSharp;
@@ -13,11 +14,11 @@ namespace API_App.Services
 
         public HttpStatusCode statusCode { get; set; }
 
+        public Dictionary<string, string> responseHeadersDict = new Dictionary<string, string>();
+
         public CallManager()
         {
-
             _client = new RestClient(AppConfigReader.BaseUrl);
-
         }
 
         public async Task<string> MakeSingleLineNameRequest(string lineName)
@@ -28,6 +29,8 @@ namespace API_App.Services
             request.Resource = $"Line/{lineName}/Route";
             var response = await _client.ExecuteAsync(request);
             statusCode = response.StatusCode;
+            Response = response;
+            GetHeaders();
 
             return response.Content;
 
@@ -41,11 +44,21 @@ namespace API_App.Services
             request.Resource = $"Vehicle/UlezCompliance?vrm={vRegMark}";
             var response = await _client.ExecuteAsync(request);
             statusCode = response.StatusCode;
+            Response = response;
+            GetHeaders();
 
             return response.Content;
 
         }
 
+        public void GetHeaders()
+        {
+            foreach (var item in Response.Headers)
+            {
+                string[] pairs = item.ToString().Split('=');
+                responseHeadersDict.Add(pairs[0], pairs[1]);
+            }
+        }
     }
 
 }

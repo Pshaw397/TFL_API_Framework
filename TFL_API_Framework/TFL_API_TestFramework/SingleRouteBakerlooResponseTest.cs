@@ -46,6 +46,12 @@ namespace APITests
             Assert.That(_singleRouteResponseService.SingleRouteDTO.SingleRouteResponse.routeSections[1].originator, Is.EqualTo("940GZZLUEAC"));
         }
 
+        [Test]
+        public void HeaderTest()
+        {
+            Assert.That(_singleRouteResponseService.CallManager.responseHeadersDict["Content-Length"], Is.EqualTo("432"));
+        }
+
     }
 }
 
