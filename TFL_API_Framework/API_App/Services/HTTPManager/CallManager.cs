@@ -33,6 +33,19 @@ namespace API_App.Services
 
         }
 
+        public string MakeVehicleRegRequest(string vRegMark)
+        {
+
+            var request = new RestRequest();
+            request.AddHeader("Content-Type", "Application/json");
+            request.Resource = $"Vehicle/UlezCompliance?vrm={vRegMark}";
+            var response = _client.Execute(request);
+            statusCode = response.StatusCode;
+
+            return response.Content;
+
+        }
+
     }
 
 }
