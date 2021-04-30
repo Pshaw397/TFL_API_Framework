@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using RestSharp;
@@ -13,11 +14,13 @@ namespace API_App.Services
 
         public HttpStatusCode statusCode { get; set; }
 
+        public ResponseHeaders responseHeaders;
+
         public CallManager()
         {
 
             _client = new RestClient(AppConfigReader.BaseUrl);
-
+            responseHeaders = new ResponseHeaders();
         }
 
         public string MakeSingleLineNameRequest(string lineName)
@@ -26,6 +29,18 @@ namespace API_App.Services
             var request = new RestRequest();
             request.AddHeader("Content-Type", "Application/json");
             request.Resource = $"Line/{lineName}/Route";
+            var response = _client.Execute(request);
+            statusCode = response.StatusCode;
+            responseHeaders.GetHeaders();
+            return response.Content;
+        }
+
+        public string MakeVehicleRegRequest(string vRegMark)
+        {
+
+            var request = new RestRequest();
+            request.AddHeader("Content-Type", "Application/json");
+            request.Resource = $"Vehicle/UlezCompliance?vrm={vRegMark}";
             var response = _client.Execute(request);
             statusCode = response.StatusCode;
 

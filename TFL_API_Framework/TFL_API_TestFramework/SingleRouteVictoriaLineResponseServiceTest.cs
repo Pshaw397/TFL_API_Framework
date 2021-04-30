@@ -3,7 +3,7 @@ using NUnit.Framework;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace APITests
+namespace TFL_API_TestFramework
 {
     public class SingleRouteVictoriaLineResponseServiceTest
     {
