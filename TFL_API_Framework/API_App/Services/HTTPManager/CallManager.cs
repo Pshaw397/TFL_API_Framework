@@ -14,40 +14,51 @@ namespace API_App.Services
 
         public HttpStatusCode statusCode { get; set; }
 
-        public ResponseHeaders responseHeaders;
+        public Dictionary<string, string> responseHeadersDict = new Dictionary<string, string>();
 
         public CallManager()
         {
-
             _client = new RestClient(AppConfigReader.BaseUrl);
-            responseHeaders = new ResponseHeaders();
         }
 
-        public string MakeSingleLineNameRequest(string lineName)
+        public async Task<string> MakeSingleLineNameRequest(string lineName)
         {
 
             var request = new RestRequest();
             request.AddHeader("Content-Type", "Application/json");
             request.Resource = $"Line/{lineName}/Route";
-            var response = _client.Execute(request);
+            var response = await _client.ExecuteAsync(request);
             statusCode = response.StatusCode;
-            responseHeaders.GetHeaders();
+            Response = response;
+            GetHeaders();
+
             return response.Content;
+
         }
 
-        public string MakeVehicleRegRequest(string vRegMark)
+        public async Task<string> MakeVehicleRegRequest(string vRegMark)
         {
 
             var request = new RestRequest();
             request.AddHeader("Content-Type", "Application/json");
             request.Resource = $"Vehicle/UlezCompliance?vrm={vRegMark}";
-            var response = _client.Execute(request);
+            var response = await _client.ExecuteAsync(request);
             statusCode = response.StatusCode;
+            Response = response;
+            GetHeaders();
 
             return response.Content;
 
         }
 
+        public void GetHeaders()
+        {
+            foreach (var item in Response.Headers)
+            {
+                string[] pairs = item.ToString().Split('=');
+                responseHeadersDict.Add(pairs[0], pairs[1]);
+            }
+        }
     }
 
 }

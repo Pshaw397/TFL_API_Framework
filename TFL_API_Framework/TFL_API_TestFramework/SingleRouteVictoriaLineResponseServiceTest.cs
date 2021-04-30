@@ -3,17 +3,17 @@ using NUnit.Framework;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace TFL_API_TestFramework
+namespace APITests
 {
     public class SingleRouteVictoriaLineResponseServiceTest
     {
         SingleRouteResponseService _singleRouteResponseService;
 
         [OneTimeSetUp]
-        public void OneTimeSetUp()
+        public async Task OneTimeSetUp()
         {
             _singleRouteResponseService = new SingleRouteResponseService();
-            _singleRouteResponseService.MakeRequest("Victoria");
+            await _singleRouteResponseService.MakeRequest("Victoria");
         }
 
         [Test]

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using API_App.Services;
 using NUnit.Framework;
 
-namespace TFL_API_TestFramework
+namespace TFL_API_TestFramework.Tests
 {
     public class SingleRouteCentralResponseServiceTest
     {
@@ -14,10 +14,10 @@ namespace TFL_API_TestFramework
         SingleRouteResponseService _singleRouteResponseService;
 
         [OneTimeSetUp]
-        public void OneTimeSetUp()
+        public async Task OneTimeSetUp()
         {
             _singleRouteResponseService = new SingleRouteResponseService();
-            _singleRouteResponseService.MakeRequest("Central");
+            await _singleRouteResponseService.MakeRequest("Central");
         }
 
         [Test]

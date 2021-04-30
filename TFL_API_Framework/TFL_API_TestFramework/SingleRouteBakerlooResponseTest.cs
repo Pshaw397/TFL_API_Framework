@@ -3,17 +3,17 @@ using NUnit.Framework;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace TFL_API_TestFramework
+namespace APITests
 {
-    public class WhenRouteIsCalledWithBakerlooLineName
+    public class WhenRouteIsCalledWithValidLineName
     {
         SingleRouteResponseService _singleRouteResponseService;
 
         [OneTimeSetUp]
-        public void OneTimeSetUp()
+        public async Task OneTimeSetUp()
         {
             _singleRouteResponseService = new SingleRouteResponseService();
-            _singleRouteResponseService.MakeRequest("Bakerloo");
+            await _singleRouteResponseService.MakeRequest("Bakerloo");
         }
 
         [Test]
@@ -49,7 +49,7 @@ namespace TFL_API_TestFramework
         [Test]
         public void HeaderTest()
         {
-            Assert.That(_singleRouteResponseService.CallManager.responseHeaders.responseHeadersDict["Content-Length"], Is.EqualTo("432"));
+            Assert.That(_singleRouteResponseService.CallManager.responseHeadersDict["Content-Length"], Is.EqualTo("432"));
         }
 
     }

@@ -14,10 +14,10 @@ namespace TFL_API_TestFramework.Tests
         VehicleService _vehileService;
 
         [OneTimeSetUp]
-        public void OneTimeSetUp()
+        public async Task OneTimeSetUp()
         {
             _vehileService = new VehicleService();
-            _vehileService.MakeRegRequest("FY53UYP");
+            await _vehileService.MakeRegRequest("FY53UYP");
         }
 
 
