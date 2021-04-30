@@ -13,7 +13,7 @@ namespace APITests
         public async Task OneTimeSetUp()
         {
             _singleRouteResponseService = new SingleRouteResponseService();
-            await _singleRouteResponseService.MakeRequest("Victoria");
+            await _singleRouteResponseService.MakeRequestAsync("Victoria");
         }
 
         [Test]

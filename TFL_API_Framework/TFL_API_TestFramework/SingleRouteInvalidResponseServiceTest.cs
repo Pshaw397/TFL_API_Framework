@@ -14,10 +14,10 @@ namespace TFL_API_TestFramework
         SingleRouteResponseService _singleRouteResponseService;
 
         [OneTimeSetUp]
-        public void OneTimeSetUp()
+        public async Task OneTimeSetUp()
         {
             _singleRouteResponseService = new SingleRouteResponseService();
-            _singleRouteResponseService.MakeRequest("ErrorRequestRoute");
+            await _singleRouteResponseService.MakeRequestAsync("ErrorRequestRoute");
         }
 
         [Test]
