@@ -29,7 +29,7 @@ namespace API_App.Services
 
         }
 
-        public async Task MakeRequest(string lineName)
+        public async Task MakeRequestAsync(string lineName)
         {
 
             LineSelected = lineName;

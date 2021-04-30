@@ -27,7 +27,7 @@ namespace API_App.Services
 
         }
 
-        public async Task MakeRegRequest(string vRegMark)
+        public async Task MakeRegRequestAsync(string vRegMark)
         {
 
             VehicleRegSelected = vRegMark;
