@@ -3,9 +3,9 @@ using NUnit.Framework;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace APITests
+namespace TFL_API_TestFramework
 {
-    public class WhenRouteIsCalledWithValidLineName
+    public class WhenRouteIsCalledWithBakerlooLineName
     {
         SingleRouteResponseService _singleRouteResponseService;
 
@@ -44,6 +44,12 @@ namespace APITests
         public void WhenRequestIsBakerloo_OriginatorOfRouteSection1_Is940GZZLUEAC()
         {
             Assert.That(_singleRouteResponseService.SingleRouteDTO.SingleRouteResponse.routeSections[1].originator, Is.EqualTo("940GZZLUEAC"));
+        }
+
+        [Test]
+        public void HeaderTest()
+        {
+            Assert.That(_singleRouteResponseService.CallManager.responseHeaders.responseHeadersDict["Content-Length"], Is.EqualTo("432"));
         }
 
     }

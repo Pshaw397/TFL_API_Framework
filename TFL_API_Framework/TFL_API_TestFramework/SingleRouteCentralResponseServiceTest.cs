@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using API_App.Services;
 using NUnit.Framework;
 
-namespace TFL_API_TestFramework.Tests
+namespace TFL_API_TestFramework
 {
     public class SingleRouteCentralResponseServiceTest
     {

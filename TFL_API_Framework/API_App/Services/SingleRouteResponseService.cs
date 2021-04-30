@@ -21,12 +21,12 @@ namespace API_App.Services
 
         public int numStatusCode { get; set; }
 
+
         public SingleRouteResponseService()
         {
 
             CallManager = new CallManager();
             SingleRouteDTO = new SingleRouteDTO();
-
         }
 
         public void MakeRequest(string lineName)
@@ -38,6 +38,7 @@ namespace API_App.Services
             ResponseContent = JObject.Parse(LineResponse);
             SingleRouteDTO.DeserializeResponse(LineResponse);
             numStatusCode = (int)CallManager.statusCode;
+
 
         }
 
