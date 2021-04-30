@@ -36,5 +36,13 @@ namespace TFL_API_TestFramework.Tests
 
         }
 
+        [Test]
+        public void WhenRequestIsCentral_RouteSection0Direction_IsEqualToInbound()
+        {
+
+            Assert.That(_singleRouteResponseService.ResponseContent["routeSections"][0]["direction"].ToString(), Is.EqualTo("inbound"));
+
+        }
+
     }
 }
